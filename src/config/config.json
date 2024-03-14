@@ -1,0 +1,5 @@
+{
+    "urlApi": "https://jsonplaceholder.typicode.com",
+    "urlLogin": "http://localhost:3000"
+
+}
