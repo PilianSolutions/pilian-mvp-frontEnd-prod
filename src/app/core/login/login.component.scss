@@ -211,9 +211,10 @@ form.sign-in-form {
 }
 
 .btn.transparent {
+  background-color: #0f0f0f!important;
+  color: #d1d1d1!important;
   margin: 0;
   background: none;
-  border: 2px solid #fff;
   width: 130px;
   height: 41px;
   font-weight: 600;

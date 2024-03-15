@@ -1,23 +1,22 @@
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
-      <form action="#" class="sign-in-form">
+      <form id="pilian-form-login" name="form" [formGroup]="formLogin" class="sign-in-form">
         <h2 class="title">Entrar</h2>
         <div class="input-field">
-          <i class="fas fa-user"></i>
-          <input type="text" placeholder="Matrícula" />
+          <i class="fa-light fa-address-card"></i>
+          <input type="text" formControlName="matricula" placeholder="Matrícula" />
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" formControlName="password" placeholder="Password" />
         </div>
-        <input type="submit" value="Login" class="btn solid" />
-        <p class="social-text">Or Sign in with social platforms</p>
+        <input type="submit" value="Login" (click)="loginConta()" class="btn solid" />
       </form>
       <form action="#" class="sign-up-form">
         <h2 class="title">Criar Conta</h2>
         <div class="input-field">
-          <i class="fas fa-user"></i>
+          <i class="fa-regular fa-address-card"></i>
           <input type="text" placeholder="Matricula" />
         </div>
         <div class="input-field">
@@ -37,19 +36,21 @@
   <div class="panels-container">
     <div class="panel left-panel">
       <div class="content">
-        <img src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" width="600px" alt="">
         <button class="btn transparent" id="sign-up-btn">
           Criar Conta
         </button>
+        <img src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" width="600px" alt="">
+
       </div>
       <img src="img/log.svg" class="image" alt="" />
     </div>
     <div class="panel right-panel">
       <div class="content">
-        <img src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" width="600px" alt="">
         <button class="btn transparent" id="sign-in-btn">
           Acessar Conta
         </button>
+        <img src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" width="600px" alt="">
+
       </div>
     </div>
   </div>

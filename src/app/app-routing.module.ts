@@ -9,15 +9,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
 
-  { path: 'login',
+  { path: '',
   loadChildren: () => import('../app/core/login/login.module').then(m => m.LoginModule),
   canActivate: [] },
-
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
 
 ];
 

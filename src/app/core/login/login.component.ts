@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit  {
+  formLogin: FormGroup;
+
+  constructor(private formBuilder: FormBuilder){
+    this.formLogin = this.formBuilder.group({
+      matricula: new FormControl(null),
+      password: new FormControl(null)
+    })
+  }
 
   ngOnInit(): void {
     this.mecanicaBotao()
@@ -27,5 +36,9 @@ export class LoginComponent implements OnInit  {
     } else {
       console.error("One or more elements not found."); // Log an error if any element is not found
     }
+  }
+
+  loginConta(){
+    console.log(this.formLogin)
   }
 }
