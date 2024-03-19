@@ -9,7 +9,7 @@ import { initializer } from './util/api-init';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastModule,
     RouterModule.forRoot([])
   ],
   providers: [

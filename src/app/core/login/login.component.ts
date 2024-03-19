@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [MessageService]
 })
 export class LoginComponent implements OnInit  {
   formLogin: FormGroup;
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private messageService: MessageService){
     this.formLogin = this.formBuilder.group({
       matricula: new FormControl(null),
       password: new FormControl(null)
@@ -38,7 +40,8 @@ export class LoginComponent implements OnInit  {
     }
   }
 
-  loginConta(){
-    console.log(this.formLogin)
+  loginConta(){   
+      this.messageService.add({ severity: 'info', summary: 'Atenção', detail: 'Não conseguimos localizar o nosso servidor!' });
+      console.log(this.formLogin)
   }
 }

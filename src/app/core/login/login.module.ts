@@ -5,7 +5,8 @@ import { AcessarContaComponent } from './components/acessar-conta/acessar-conta.
 import { CriarContaComponent } from './components/criar-conta/criar-conta.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { LoginComponent } from './login.component';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
+    MessagesModule,
+    ToastModule
   ],
 })
 export class LoginModule { }
