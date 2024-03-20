@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: '',
   loadChildren: () => import('../app/core/login/login.module').then(m => m.LoginModule),
   canActivate: [] },
-
+  { path: 'painel',
+  loadChildren: () => import('../app/core/painel/painel.module').then(m => m.PainelModule),
+  canActivate: [] },
 ];
 
 @NgModule({
