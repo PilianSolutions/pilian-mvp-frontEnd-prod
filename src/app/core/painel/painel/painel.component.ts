@@ -21,6 +21,7 @@ export class PainelComponent {
 
     if (sidebar) {
       sidebar.classList.toggle("open");
+      this.menuBtnChange();
       closeBtn?.addEventListener("click", () => {
         sidebar.classList.toggle("open");
         this.menuBtnChange();
@@ -38,6 +39,7 @@ export class PainelComponent {
     const closeBtn = document.querySelector("#btn");
 
     if (sidebar && closeBtn) {
+
       if (sidebar.classList.contains("open")) {
         closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
       } else {
