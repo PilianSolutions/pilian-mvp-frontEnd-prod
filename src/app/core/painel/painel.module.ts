@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { PainelComponent } from './painel/painel.component';
 import { PainelRoutingModule } from './painel-routing.module';
 import { MenubarModule } from 'primeng/menubar';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { RouterModule } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -11,7 +14,8 @@ import { MenubarModule } from 'primeng/menubar';
   imports: [
     CommonModule,
     MenubarModule,
-    PainelRoutingModule
+    PainelRoutingModule,
+    ToastModule
   ],exports:[PainelComponent]
 })
 export class PainelModule { }

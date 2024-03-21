@@ -10,6 +10,7 @@ import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
+import { LoginModule } from './core/login/login.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ToastModule } from 'primeng/toast';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastModule,
-    RouterModule.forRoot([])
+    LoginModule,
   ],
   providers: [
     DynamicDialogRef,

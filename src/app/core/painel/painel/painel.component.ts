@@ -1,16 +1,24 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-painel',
   templateUrl: './painel.component.html',
-  styleUrls: ['./painel.component.scss']
+  styleUrls: ['./painel.component.scss'],
+  providers: [MessageService]
 })
 export class PainelComponent {
 
-  constructor() { }
+  id:any = '3812938129';
+
+  constructor(private route: ActivatedRoute, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      // Use o ID conforme necessário
+    });
     this.sidebar();
   }
 
@@ -46,5 +54,8 @@ export class PainelComponent {
         closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
       }
     }
+  }
+  mensagem(): void{
+    this.messageService.add({ severity: 'info', summary: 'Atenção', detail: 'Não conseguimos localizar o nosso servidor!' });
   }
 }
