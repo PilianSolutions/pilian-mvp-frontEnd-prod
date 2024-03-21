@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-painel',
@@ -9,7 +9,7 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 export class PainelComponent {
-
+  items: MenuItem[] | undefined;
   id:any = '3812938129';
 
   constructor(private route: ActivatedRoute, private messageService: MessageService) { }
@@ -17,7 +17,7 @@ export class PainelComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-      // Use o ID conforme necessário
+      
     });
     this.sidebar();
   }

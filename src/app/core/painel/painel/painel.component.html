@@ -56,12 +56,19 @@
   </ul>
 </div>
 <div class="home-section">
-<p-menubar  [style]="{'background-color': '#131313', 'border-radius': 0}">
+<div style="position: fixed; width: 100%;">
+<p-menubar  [style]="{'background-color': '#131313', 'border-radius': 0,}">
   <ng-template pTemplate="start">
   </ng-template>
   <ng-template pTemplate="end">
-    <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" />
+    <div class="card flex justify-content-center">
+    <img src="https://primefaces.org/cdn/primeng/images/primeng.svg"  height="40" class="mr-2" />
+  </div>
   </ng-template>
 </p-menubar>
+</div>
+<br/>
+<br/>
+<br/>
 <router-outlet></router-outlet>
 </div>

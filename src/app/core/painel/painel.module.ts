@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { PainelComponent } from './painel/painel.component';
 import { PainelRoutingModule } from './painel-routing.module';
+
 import { MenubarModule } from 'primeng/menubar';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { ToastModule } from 'primeng/toast';
     CommonModule,
     MenubarModule,
     PainelRoutingModule,
-    ToastModule
+    ToastModule,
   ],exports:[PainelComponent]
 })
 export class PainelModule { }
