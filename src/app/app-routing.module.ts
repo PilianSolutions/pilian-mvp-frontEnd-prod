@@ -14,10 +14,14 @@ const routes: Routes = [
   loadChildren: () => import('../app/core/login/login.module').then(m => m.LoginModule),
   canActivate: [] },
 
+  { path: 'login',
+  loadChildren: () => import('../app/core/login2/login2.module').then(m => m.Login2Module),
+  canActivate: [] },
+
   { path: 'painel',
   loadChildren: () => import('../app/core/painel/painel.module').then(m => m.PainelModule),
   canActivate: [] },
-  
+
   { path: '**', component: PageNotFoundComponent }
 ];
 

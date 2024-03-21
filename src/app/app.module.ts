@@ -8,10 +8,10 @@ import { AppConfig } from './app.config';
 import { initializer } from './util/api-init';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { LoginModule } from './core/login/login.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { Login2Module } from './core/login2/login2.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
     HttpClientModule,
     ToastModule,
     LoginModule,
+    Login2Module,
   ],
   providers: [
     DynamicDialogRef,
