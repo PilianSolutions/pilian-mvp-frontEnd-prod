@@ -1,3 +1,7 @@
+::ng-deep .p-menubar {
+  margin-top: -1px;
+  margin-left: -5px;
+}
 .sidebar{
   position: fixed;
   left: 0;
@@ -234,6 +238,7 @@
 }
 .sidebar.open ~ .home-section{
   left: 250px;
+  margin: 0;
   width: calc(100% - 250px);
 }
 .home-section .text{
