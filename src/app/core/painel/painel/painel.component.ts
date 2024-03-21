@@ -20,6 +20,7 @@ export class PainelComponent {
     const searchBtn = document.querySelector(".bx-search");
 
     if (sidebar) {
+      sidebar.classList.toggle("open");
       closeBtn?.addEventListener("click", () => {
         sidebar.classList.toggle("open");
         this.menuBtnChange();
