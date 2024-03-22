@@ -1,4 +1,21 @@
 <p-toast></p-toast>
+
+<div style="position: fixed; width: 100%; margin: 0;z-index: 8; ">
+
+  <p-menubar  [style]="{'background-color': '#131313', 'border-radius': 0, 'height': '60px'}">
+    <ng-template pTemplate="start">
+    </ng-template>
+    <ng-template pTemplate="end">
+      <div class="card flex justify-content-center">
+        <div pRipple class="container-user" style="cursor: pointer;">
+          <i class='bx bxs-bell'></i>
+          <p-avatar icon="bx bxs-user" styleClass="mr-2"shape="circle" [style]="{'backgroundColor': 'rgb(196, 242, 27)', 'fontWeight': '700'}"></p-avatar>
+      </div>
+    </div>
+    </ng-template>
+  </p-menubar>
+</div>
+
 <div class="sidebar">
   <div class="logo-details">
       <div class="logo_name"><img src="../../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor copy 2.svg" width="60px" alt="">
@@ -56,19 +73,6 @@
   </ul>
 </div>
 <div class="home-section">
-<div style="position: fixed; width: 100%;">
-<p-menubar  [style]="{'background-color': '#131313', 'border-radius': 0,}">
-  <ng-template pTemplate="start">
-  </ng-template>
-  <ng-template pTemplate="end">
-    <div class="card flex justify-content-center">
-    <img src="https://primefaces.org/cdn/primeng/images/primeng.svg"  height="40" class="mr-2" />
-  </div>
-  </ng-template>
-</p-menubar>
-</div>
-<br/>
-<br/>
-<br/>
+
 <router-outlet></router-outlet>
 </div>
