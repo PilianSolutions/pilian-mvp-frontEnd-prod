@@ -79,8 +79,9 @@ export class LoginComponent implements OnInit {
       this.messageService.add({severity:'success', summary:`Bem Vindo ${this.usuario}!`, detail:'Parabéns! Suas credenciais foram verificadas com sucesso. Você agora está logado em sua conta.'});
       //this.salvarDadoUsuarioMemoria()
       setTimeout(() => {
-        localStorage.setItem('loggedIn', 'true');
-        this.authService.login(this.usuario, this.senha)
+
+        this.authService.salvarDadoUsuarioIndexedDB(this.dadosUsuarios);
+       //this.authService.login(this.usuario, this.senha)
         this.router.navigate(['/painel'])
         this.messageService.clear();
       }, 1000);
