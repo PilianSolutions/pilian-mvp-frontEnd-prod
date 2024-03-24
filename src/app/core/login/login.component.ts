@@ -60,12 +60,13 @@ export class LoginComponent implements OnInit {
   }
 
   validarSeExisteUsuario(){
-    console.log(this.senha)
-    return this.dadosUsuarios.find(
-      (objeto:any) =>
-      (objeto.matricula === this.usuario) &&
-      (objeto.password === this.senha)
+    if(this.usuario && this.senha){
+      return this.dadosUsuarios.find(
+        (objeto:any) =>
+        (objeto.matricula === this.usuario) &&
+        (objeto.password === this.senha)
       );
+    }
   }
   salvarDadoUsuarioMemoria(){
     const daddosUsuarios: any = this.dadosUsuarios.filter((entidade: any) => entidade.matricula === this.usuario)
@@ -73,7 +74,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginConta(){
-    console.log(this.validarSeExisteUsuario())
     if(this.validarSeExisteUsuario()){
 
       this.messageService.add({severity:'success', summary:`Bem Vindo ${this.usuario}!`, detail:'Parabéns! Suas credenciais foram verificadas com sucesso. Você agora está logado em sua conta.'});
