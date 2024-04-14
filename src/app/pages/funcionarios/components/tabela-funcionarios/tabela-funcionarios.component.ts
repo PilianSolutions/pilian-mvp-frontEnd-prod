@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs';
+import { Subscription, finalize } from 'rxjs';
 import { FuncionariosService } from 'src/app/shared/services/funcionarios.service';
+import { FuncionariosObservableService } from '../../service/funcionarios.service';
 
 @Component({
   selector: 'pilian-tabela-funcionarios',
@@ -9,12 +10,26 @@ import { FuncionariosService } from 'src/app/shared/services/funcionarios.servic
 })
 export class TabelaFuncionariosComponent implements OnInit {
   listaFuncionarios: any;
-  constructor(private readonly funcionariosService: FuncionariosService){}
+  subscriptionConcluirNovoFuncionario: Subscription;
+
+  constructor(private readonly osService: FuncionariosObservableService, private readonly funcionariosService: FuncionariosService){
+    this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
+      if(res){
+        this.listarClientes()
+      }
+    });
+  }
   selecionadoFuncionario!: any;
   funcionario:any[] | any
+
   ngOnInit(): void {
     this.listarClientes()
   }
+
+  ngOnDestroy(): void {
+    this.subscriptionConcluirNovoFuncionario.unsubscribe();
+  }
+
   isEven(index: number): boolean {
     return index % 2 === 0;
   }

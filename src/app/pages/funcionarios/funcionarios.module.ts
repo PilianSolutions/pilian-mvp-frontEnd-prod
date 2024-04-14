@@ -1,4 +1,4 @@
-import { CommonModule, NgForOf, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { FuncionariosRoutingModule } from './funcionarios-routing.module';
@@ -7,13 +7,15 @@ import { MenuFuncionariosComponent } from './components/menu-funcionarios/menu-f
 import { TabelaFuncionariosComponent } from './components/tabela-funcionarios/tabela-funcionarios.component';
 import { FuncionariosComponent } from './pages/funcionarios.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ModalAdicionarFuncionarioComponent } from './components/modal-adicionar-funcionario/modal-adicionar-funcionario.component';
 
-import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { InputTextModule } from 'primeng/inputtext';
   ],
 
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     FuncionariosRoutingModule,
     DynamicDialogModule,
     TableModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule,
+    ButtonModule
   ],
   exports:[
     ModalAdicionarFuncionarioComponent

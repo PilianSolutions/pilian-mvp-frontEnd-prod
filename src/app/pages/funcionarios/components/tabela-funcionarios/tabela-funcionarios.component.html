@@ -1,5 +1,5 @@
 <p-table [value]="listaFuncionarios" [paginator]="true" [rows]="10" [(selection)]="selecionadoFuncionario" dataKey="id"  [style]="{'borderRadius': '10px'}">
-  <ng-template pTemplate="caption" [style]="{'background':'rgb(196, 242, 27)!important'}">
+  <ng-template pTemplate="caption">
     <span>Lista de Funcionarios</span>
   </ng-template>
   <ng-template pTemplate="header" let-columns>
@@ -8,7 +8,7 @@
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
       </th>
       <th>Nome</th>
-      <th>Telefone</th>
+      <th>Telefone/Ramal</th>
       <th>Modulo</th>
       <th>Cargo</th>
       <th>Status</th>
@@ -36,3 +36,9 @@
     </tr>
   </ng-template>
 </p-table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

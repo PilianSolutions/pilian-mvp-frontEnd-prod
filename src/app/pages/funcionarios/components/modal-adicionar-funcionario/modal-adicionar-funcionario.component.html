@@ -1,1 +1,57 @@
-<p>modal-adicionar-funcionario works!</p>
+<form [formGroup]="formGroup" class="pilian-container-modal gap-4">
+
+  <div class="">
+    <label for="nomeCompleto">Nome Completo</label>
+    <div class="p-inputgroup">
+      <input pInputText formControlName="nomeCompleto" placeholder="Nome Completo" />
+    </div>
+  </div>
+
+  <div class="flex gap-4 w-full">
+    <div class="w-full">
+      <label for="email">E-Mail</label>
+      <div class="p-inputgroup">
+        <input pInputText formControlName="email" placeholder="E-mail" style="width: 100%;"/>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <label for="telefoneRamal">Telefone/Ramal</label>
+      <div class="p-inputgroup">
+        <input pInputText formControlName="telefoneRamal" placeholder="Telefone/Ramal" style="width: 100%;"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-4">
+    <div class="flex-col w-full">
+      <label for="cargo">Cargo</label>
+      <p-dropdown formControlName="cargo" [style]="{'width':'100%'}" [options]="cargos" optionLabel="name" [showClear]="true" placeholder="Selecione o Cargo"></p-dropdown>
+    </div>
+
+    <div class="flex-col w-full">
+      <label for="modulo">Modulos</label>
+      <p-dropdown formControlName="modulo" [style]="{'width':'100%'}" [options]="modulos" optionLabel="name" [showClear]="true" placeholder="Selecione o Modulo"></p-dropdown>
+    </div>
+
+    <div class="flex-col w-full">
+      <label for="sexo">Sexo</label>
+      <p-dropdown formControlName="sexo" [style]="{'width':'100%'}" [options]="sexo" optionLabel="name" [showClear]="true" placeholder="Selecione o Sexo"></p-dropdown>
+    </div>
+  </div>
+
+</form>
+
+<br/>
+<br/>
+<br/>
+
+<div class="pilian-container-botton-modal gap-4 bg-whit" >
+  <p-button label="Cancelar" icon="bx bxs-trash-alt" (onClick)="cancelarModalFuncionario()"  [style]="{'backgroundColor':'rgb(236 236 236)', 'padding': '15px 40px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
+  <p-button label="Adicionar" icon="bx bxs-plus-circle" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+</div>
+
+<div class="pilian-opcao-limpar">
+  <p-button label="Limpar" icon="bx bx-refresh" (onClick)="limparFormulario()"  [style]="{'backgroundColor':'rgb(183 232 2)', 'borderRadius': '0', 'padding': '14px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
+</div>
+

@@ -19,4 +19,9 @@ export class FuncionariosService extends ApiService<any>  {
     const url = `${AppConfig.settings.urlApi}/${this.endpoint}`
     return this.httpClient.get<any>(url)
   }
+
+  CriarFuncionarios(dados: any){
+    const url = `${AppConfig.settings.urlApi}/${this.endpoint}`
+    return this.httpClient.post<any>(url, dados)
+  }
 }

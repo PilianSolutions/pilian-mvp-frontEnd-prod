@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ModalAdicionarFuncionarioComponent } from '../modal-adicionar-funcionario/modal-adicionar-funcionario.component';
+import { FuncionariosObservableService } from '../../service/funcionarios.service';
 
 @Component({
   selector: 'pilian-menu-funcionarios',
@@ -11,21 +12,24 @@ import { ModalAdicionarFuncionarioComponent } from '../modal-adicionar-funcionar
 })
 export class MenuFuncionariosComponent implements OnDestroy  {
 
-  constructor(public dialogService: DialogService, public messageService: MessageService) {}
+  constructor(private readonly osService: FuncionariosObservableService,public dialogService: DialogService, public messageService: MessageService) {}
   ref: DynamicDialogRef | undefined;
 
   adicionarFuncionario(){
     this.ref = this.dialogService.open(ModalAdicionarFuncionarioComponent, {
       header: 'Adicionar Funcionario',
-      width: '70%',
+      width: '50%',
+      height: '60%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: true
   });
 
-  this.ref.onClose.subscribe((product: any) => {
-      if (product) {
-          this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: product.name });
+  this.ref.onClose.subscribe((funcionario: any) => {
+    console.log(funcionario)
+      if (funcionario) {
+          this.osService.nextConcluirNovoFuncionario(funcionario);
+          this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: 'teste' });
       }
   });
 

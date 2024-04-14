@@ -7,4 +7,14 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Open Sans", sans-serif;}
 
-
+input {
+  background: #ebebeb;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #131313;
+  border: 1px solid #dfdfdf;
+}
+input:-internal-autofill-selected {
+  background-color:  #ebebeb!important;
+}
