@@ -13,15 +13,15 @@ export class TabelaFuncionariosComponent implements OnInit {
   subscriptionConcluirNovoFuncionario: Subscription | any;
 
   constructor(private readonly osService: FuncionariosObservableService, private readonly funcionariosService: FuncionariosService){
-
+    this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
+      this.listarClientes();
+  });
   }
   selecionadoFuncionario!: any;
   funcionario:any[] | any
 
   ngOnInit(): void {
-    this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
-      this.listarClientes();
-  });
+
   this.listarClientes();
   }
 
