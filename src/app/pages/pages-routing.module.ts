@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TesteComponent } from './teste/teste.component';
 import { Teste2Component } from './teste2/teste2.component';
 import { PageNotFoundComponent } from '../shared/components/page-not-found/page-not-found.component';
+import { FuncionariosComponent } from './funcionarios/pages/funcionarios.component';
 
 
 
@@ -12,8 +13,9 @@ const routes: Routes = [
     component: TesteComponent,
   },
   {
-    path: 'teste2',
-    component: Teste2Component,
+    path: 'funcionarios',
+    loadChildren: () => import('./funcionarios/funcionarios.module').then(m => m.FuncionariosModule)
+
   },
   { path: '**', component: PageNotFoundComponent }
 ];
