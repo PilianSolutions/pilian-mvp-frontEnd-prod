@@ -1,5 +1,5 @@
 {
-    "urlApi": "http://localhost:3000",
+    "urlApi": "https://moke.pilian.com.br",
     "urlLogin": "https://moke.pilian.com.br"
 
 }
