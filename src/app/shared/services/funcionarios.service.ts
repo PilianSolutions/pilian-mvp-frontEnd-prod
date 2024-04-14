@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { AppConfig } from 'src/app/app.config';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,17 @@ export class FuncionariosService extends ApiService<any>  {
     return this.httpClient.get<any>(url)
   }
 
+  filtrarFuncionarios(dadosFuncionarios:any){
+    const url = `${AppConfig.settings.urlApi}/${this.endpoint}?${dadosFuncionarios}`
+    return this.httpClient.get<any>(url)
+  }
+
   CriarFuncionarios(dados: any){
     const url = `${AppConfig.settings.urlApi}/${this.endpoint}`
     return this.httpClient.post<any>(url, dados)
+  }
+  excluirFuncionarios(itemId: number): Observable<any> {
+    const url = `${AppConfig.settings.urlApi}/${this.endpoint}?id=${itemId}`
+    return this.httpClient.delete(url);
   }
 }

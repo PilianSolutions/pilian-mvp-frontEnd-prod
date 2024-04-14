@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ModalAdicionarFuncionarioComponent } from '../modal-adicionar-funcionario/modal-adicionar-funcionario.component';
 import { FuncionariosObservableService } from '../../service/funcionarios.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pilian-menu-funcionarios',
@@ -11,8 +12,19 @@ import { FuncionariosObservableService } from '../../service/funcionarios.servic
   providers: [MessageService, DialogService]
 })
 export class MenuFuncionariosComponent implements OnDestroy  {
+  todosFuncionarios: any[] | any;
+  funcionariosOnline: any[] | any;
+  funcionariosOffline: any[] | any;
+  subscriptionFuncionarioDados: Subscription;
 
-  constructor(private readonly osService: FuncionariosObservableService,public dialogService: DialogService, public messageService: MessageService) {}
+  constructor(private readonly osService: FuncionariosObservableService,public dialogService: DialogService, public messageService: MessageService) {
+    this.subscriptionFuncionarioDados = this.osService.observableFuncionarioDados().subscribe((res: any) =>{
+      if(res){
+        this.todosFuncionarios = res
+        console.log(res)
+      }
+    });
+  }
   ref: DynamicDialogRef | undefined;
 
   adicionarFuncionario(){

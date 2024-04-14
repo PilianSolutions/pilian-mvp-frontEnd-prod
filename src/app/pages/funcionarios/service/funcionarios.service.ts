@@ -6,9 +6,15 @@ import { Observable, Subject } from 'rxjs';
 })
 export class FuncionariosObservableService {
   private readonly concluirNovoFuncionario: Subject<any> = new Subject;
-    private readonly quadrinho: Subject<any> = new Subject;
+    private readonly funcionarioDados: Subject<any> = new Subject;
     private readonly endereco: Subject<any> = new Subject;
 
+    public observableFuncionarioDados(): Observable<any>{
+        return this.funcionarioDados.asObservable()
+    }
+    public nextFuncionarioDados(exibir: any){
+        return this.funcionarioDados.next(exibir);
+    }
     public observableConcluirNovoFuncionario(): Observable<any>{
         return this.concluirNovoFuncionario.asObservable()
     }

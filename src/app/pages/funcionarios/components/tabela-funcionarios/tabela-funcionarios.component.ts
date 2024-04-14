@@ -10,20 +10,19 @@ import { FuncionariosObservableService } from '../../service/funcionarios.servic
 })
 export class TabelaFuncionariosComponent implements OnInit {
   listaFuncionarios: any;
-  subscriptionConcluirNovoFuncionario: Subscription;
+  subscriptionConcluirNovoFuncionario: Subscription | any;
 
   constructor(private readonly osService: FuncionariosObservableService, private readonly funcionariosService: FuncionariosService){
-    this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
-      if(res){
-        this.listarClientes()
-      }
-    });
+
   }
   selecionadoFuncionario!: any;
   funcionario:any[] | any
 
   ngOnInit(): void {
-    this.listarClientes()
+    this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
+      this.listarClientes();
+  });
+  this.listarClientes();
   }
 
   ngOnDestroy(): void {
@@ -39,7 +38,20 @@ export class TabelaFuncionariosComponent implements OnInit {
     this.funcionariosService.listarFuncionarios().pipe(finalize(() => {
     })).subscribe((response) => {
       console.log(response)
+      this.osService.nextFuncionarioDados(response);
       this.listaFuncionarios = response;
     })
+  }
+  excluirFuncionarios(index:any ){
+    console.log(index)
+    this.funcionariosService.excluirFuncionarios(index).subscribe(() => {
+      this.listarClientes()
+        console.log('Item excluído com sucesso.');
+        // Faça qualquer outra ação necessária após a exclusão bem-sucedida
+      },
+      error => {
+        console.error('Ocorreu um erro ao excluir o item:', error);
+      }
+    );
   }
 }
