@@ -15,7 +15,6 @@ const routes: Routes = [
   {
     path: 'funcionarios',
     loadChildren: () => import('./funcionarios/funcionarios.module').then(m => m.FuncionariosModule)
-
   },
   { path: '**', component: PageNotFoundComponent }
 ];

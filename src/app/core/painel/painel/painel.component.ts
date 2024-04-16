@@ -17,7 +17,7 @@ export class PainelComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-      
+
     });
     this.sidebar();
   }
@@ -58,4 +58,6 @@ export class PainelComponent {
   mensagem(): void{
     this.messageService.add({ severity: 'info', summary: 'Atenção', detail: 'Não conseguimos localizar o nosso servidor!' });
   }
+
+  
 }

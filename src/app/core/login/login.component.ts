@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private readonly authService: AuthService,
     private messageService: MessageService,
+    private localStorageService: LocalStorageService
   ) {
     this.formLogin = this.formBuilder.group({
       matricula: new FormControl(null),
@@ -70,19 +72,18 @@ export class LoginComponent implements OnInit {
   }
   salvarDadoUsuarioMemoria(){
     const daddosUsuarios: any = this.dadosUsuarios.filter((entidade: any) => entidade.matricula === this.usuario)
-    localStorage.setItem('usuario', daddosUsuarios[0].matricula);
+    this.localStorageService.setItem('usuarioData', daddosUsuarios[0].matricula);
   }
 
   loginConta(){
     if(this.validarSeExisteUsuario()){
 
       this.messageService.add({severity:'success', summary:`Bem Vindo ${this.usuario}!`, detail:'Parabéns! Suas credenciais foram verificadas com sucesso. Você agora está logado em sua conta.'});
-      //this.salvarDadoUsuarioMemoria()
+      this.salvarDadoUsuarioMemoria()
       setTimeout(() => {
-
         this.authService.salvarDadoUsuarioIndexedDB(this.dadosUsuarios);
        //this.authService.login(this.usuario, this.senha)
-        this.router.navigate(['/painel'])
+        this.router.navigate([`/${this.usuario}/painel`])
         this.messageService.clear();
       }, 1000);
 

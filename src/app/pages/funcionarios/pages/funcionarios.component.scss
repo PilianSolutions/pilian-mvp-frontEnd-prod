@@ -14,20 +14,23 @@
   background: rgb(41, 41, 41)!important;
 }
 ::ng-deep  body .p-paginator {
-  position: fixed;
-  z-index: 9999!important;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  border-radius: 0!important;
-  background: #131313;
+    /* position: fixed; */
+    z-index: 9999 !important;
+    /* width: 100%; */
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    border-radius: 0 !important;
+    background: #141414;
+    height: 40px;
+    align-content: center;
+    justify-content: flex-end;
 }
 ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-  background:#141414;
+  background: #668200bf;
   border-color:none ;
   color: rgb(195, 242, 27);
   z-index: 99;
@@ -37,4 +40,9 @@
 }
 ::ng-deep.p-datatable .p-datatable-thead > tr > th{
   padding: 0.5rem 0.5rem;
+}
+
+::ng-deep.p-paginator .p-paginator-pages .p-paginator-page {
+  min-width: 2rem;
+  height: 2rem;
 }
