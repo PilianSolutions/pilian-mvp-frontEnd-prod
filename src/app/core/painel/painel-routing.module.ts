@@ -13,9 +13,9 @@ const routes: Routes = [
     component: PainelComponent,
     canActivate: [AuthGuardGuard],
     children: [
-      { path: 'painel', redirectTo: ':id', pathMatch: 'full' }, // Redirecionamento
+      { path: '', redirectTo: 'painel', pathMatch: 'full' }, // Redirecionamento
       {
-        path: ':id',
+        path: 'painel',
         loadChildren: () => import('../../pages/pages.module').then(m => m.PagesModule)
       },
     ],

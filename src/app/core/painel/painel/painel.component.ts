@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, HostListener } from '@angular/core';
+import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
@@ -12,7 +12,7 @@ export class PainelComponent {
   items: MenuItem[] | undefined;
   id:any = '3812938129';
 
-  constructor(private route: ActivatedRoute, private messageService: MessageService) { }
+  constructor( private router:Router, private route: ActivatedRoute, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -59,5 +59,30 @@ export class PainelComponent {
     this.messageService.add({ severity: 'info', summary: 'Atenção', detail: 'Não conseguimos localizar o nosso servidor!' });
   }
 
-  
+  getUrl(item: string): any {
+    if(item === 'dashboard'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000','painel',item])
+      return urlTree.toString();
+    }
+    if(item === 'funcionarios'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000/painel',item])
+      return urlTree.toString();
+    }
+    if(item === 'minhaConta'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000','painel',item])
+      return urlTree.toString();
+    }
+    if(item === 'modulos'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000','painel',item])
+      return urlTree.toString();
+    }
+    if(item === 'analitico'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000','painel',item])
+      return urlTree.toString();
+    }
+    if(item === 'configuracao'){
+      const urlTree: UrlTree = this.router.createUrlTree(['pl1000','painel',item])
+      return urlTree.toString();
+    }
+  }
 }

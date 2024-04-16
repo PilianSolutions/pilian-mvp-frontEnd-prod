@@ -22,9 +22,9 @@
          Pilian</div>
       <i class='bx bx-menu' id="btn" ></i>
   </div>
-  <ul class="nav-list">
+  <ul class="nav-list" id="menu">
     <li>
-      <a href="javascript:void(0);"  (click)="mensagem()">
+      <a [routerLink]="getUrl('dashboard')" routerLinkActive="active" >
         <i class='bx bx-grid-alt'></i>
         <span class="links_name">Dashboard</span>
       </a>
@@ -32,35 +32,35 @@
     </li>
 
    <li>
-    <a href="javascript:void(0);"  (click)="mensagem()">
+    <a [routerLink]="getUrl('funcionarios')" routerLinkActive="active" >
       <i class='bx bx-group'></i>
       <span class="links_name">Funcionários</span>
     </a>
     <span class="tooltip">Funcionários</span>
   </li>
   <li>
-    <a href="javascript:void(0);"  (click)="mensagem()">
+    <a [routerLink]="getUrl('minhaConta')" routerLinkActive="active" >
       <i class='bx bx-user' ></i>
       <span class="links_name">Minha Conta</span>
     </a>
     <span class="tooltip">Minha Conta</span>
   </li>
    <li>
-     <a href="javascript:void(0);"  (click)="mensagem()">
+     <a [routerLink]="getUrl('modulos')" routerLinkActive="active" >
       <i class='bx bx-minus-back'></i>
        <span class="links_name">Modulos</span>
      </a>
      <span class="tooltip">Modulos</span>
    </li>
    <li>
-     <a href="javascript:void(0);"  (click)="mensagem()">
+     <a [routerLink]="getUrl('analitico')" routerLinkActive="active" >
        <i class='bx bx-pie-chart-alt-2' ></i>
        <span class="links_name">Analitico</span>
      </a>
      <span class="tooltip">Analitico</span>
    </li>
    <li>
-     <a href="javascript:void(0);"  (click)="mensagem()">
+     <a [routerLink]="getUrl('configuracao')" routerLinkActive="active" >
        <i class='bx bx-cog' ></i>
        <span class="links_name">Configuração</span>
      </a>
