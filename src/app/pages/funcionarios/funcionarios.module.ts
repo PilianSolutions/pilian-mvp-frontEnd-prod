@@ -16,13 +16,21 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ModalEditarFotoPerfilFuncionarioComponent } from './components/modal-editar-foto-perfil-funcionario/modal-editar-foto-perfil-funcionario.component';
+
+import { LyImageCropperModule } from '@alyle/ui/image-cropper';
+import { LySliderModule } from '@alyle/ui/slider';
+import { LyButtonModule } from '@alyle/ui/button';
+import { LyIconModule } from '@alyle/ui/icon';
+import { LyThemeModule } from '@alyle/ui';
 
 @NgModule({
   declarations: [
     FuncionariosComponent,
     MenuFuncionariosComponent,
     TabelaFuncionariosComponent,
-    ModalAdicionarFuncionarioComponent
+    ModalAdicionarFuncionarioComponent,
+    ModalEditarFotoPerfilFuncionarioComponent
   ],
 
   imports: [
@@ -34,9 +42,15 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     InputTextModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    LyImageCropperModule,
+    LySliderModule,
+    LyButtonModule,
+    LyIconModule,
+    LyThemeModule
   ],
   exports:[
+    ModalEditarFotoPerfilFuncionarioComponent,
     ModalAdicionarFuncionarioComponent
   ]
 })

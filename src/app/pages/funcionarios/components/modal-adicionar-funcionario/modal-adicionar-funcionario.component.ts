@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FuncionariosService } from 'src/app/shared/services/funcionarios.service';
+import { ModalEditarFotoPerfilFuncionarioComponent } from '../modal-editar-foto-perfil-funcionario/modal-editar-foto-perfil-funcionario.component';
 
 interface cargo {
   name: string,
@@ -21,8 +22,8 @@ export class ModalAdicionarFuncionarioComponent {
   selecionadoCargo: any;
   selecionadoModulo: any;
   selecionadoSexo: any;
-
-  constructor(private formBuilder: FormBuilder,private readonly ref: DynamicDialogRef, private readonly funcionariosService: FuncionariosService) { }
+  refs: DynamicDialogRef | undefined;
+  constructor(private formBuilder: FormBuilder,private readonly ref: DynamicDialogRef, public dialogService: DialogService, private readonly funcionariosService: FuncionariosService) { }
 
 
   ngOnInit() {
@@ -58,6 +59,23 @@ export class ModalAdicionarFuncionarioComponent {
       modulo: ['', Validators.required],
       sexo: ['', Validators.required]
     });
+  }
+  getFotoPerfil(){
+    this.refs = this.dialogService.open(ModalEditarFotoPerfilFuncionarioComponent, {
+      header: 'Adicionar Foto de Perfil',
+      width: '50%',
+      height: '60%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: true
+  });
+
+  this.refs.onClose.subscribe((funcionario: any) => {
+
+  });
+
+  this.refs.onMaximize.subscribe((value) => {
+  });
   }
   onSubmit() {
     const status = Math.random() < 0.5 ? 'online' : 'offline';

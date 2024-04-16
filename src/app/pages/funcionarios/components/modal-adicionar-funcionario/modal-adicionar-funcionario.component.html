@@ -35,8 +35,9 @@
     </div>
 
     <div class="flex-col w-full">
-      <label for="sexo">Sexo</label>
-      <p-dropdown formControlName="sexo" [style]="{'width':'100%'}" [options]="sexo" optionLabel="name" [showClear]="true" placeholder="Selecione o Sexo"></p-dropdown>
+      <span>Adicionar Foto do perfil</span>
+      <p-button label="Adicionar" icon="bx bxs-plus-circle" (onClick)="getFotoPerfil()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+
     </div>
   </div>
 
