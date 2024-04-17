@@ -35,25 +35,28 @@
     </div>
 
     <br/>
-    
+
     <div class="pilian-add-foto-perfil flex-col w-full">
       <span>Adicionar Foto do funcionario</span>
       <p-button label="Adicionar" icon="bx bxs-image-add" (onClick)="getFotoPerfil()" [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
+      <br/>
+      <img class="shadow-lg" style="border-radius: 50%;" *ngIf="formGroup?.value?.foto" [src]="formGroup?.value?.foto?.dataURL" width="100px" alt="Imagem do Perfil do Candidato">
+
     </div>
   </div>
 
-</form>
-
-<br/>
 <br/>
 <br/>
 
 <div class="pilian-container-botton-modal gap-2 bg-whit" >
   <p-button label="Cancelar" icon="bx bxs-trash-alt" (onClick)="cancelarModalFuncionario()"  [style]="{'backgroundColor':'rgb(236 236 236)', 'padding': '15px 40px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
-  <p-button label="Criar" icon="bx bxs-plus-circle" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
+  <p-button label="Criar" icon="bx bxs-plus-circle" (disabled)="formGroup.isvalid" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
 </div>
 
+
+</form>
+
 <div class="pilian-opcao-limpar">
-  <p-button label="Limpar" icon="bx bx-refresh" (onClick)="limparFormulario()"  [style]="{'backgroundColor':'rgb(183 232 2)', 'borderRadius': '0', 'padding': '14px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
+  <p-button label="Limpar" icon="bx bx-refresh"  (onClick)="limparFormulario()"  [style]="{'backgroundColor':'rgb(183 232 2)', 'borderRadius': '0', 'padding': '14px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
 </div>
 

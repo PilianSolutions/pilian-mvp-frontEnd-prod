@@ -48,5 +48,5 @@
   <div class="pilian-adicionar-foto">
     <p-button (disabled)="croppedImage" label="Corta Foto" *ngIf="ready" icon="bx bx-scan"  (click)="cropper.crop()"   [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
   </div>
-  <p-button (disabled)="croppedImage" bg="accent" label="Salvar" icon="bx bxs-save" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+  <p-button (disabled)="croppedImage" bg="accent" label="Salvar" (onClick)="salvarFoto()" icon="bx bxs-save" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
 </div>

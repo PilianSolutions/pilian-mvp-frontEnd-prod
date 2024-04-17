@@ -23,6 +23,7 @@ export class ModalAdicionarFuncionarioComponent {
   selecionadoModulo: any;
   selecionadoSexo: any;
   refs: DynamicDialogRef | undefined;
+  habilitarFoto: boolean = false;
   constructor(private formBuilder: FormBuilder,private readonly ref: DynamicDialogRef, public dialogService: DialogService, private readonly funcionariosService: FuncionariosService) { }
 
 
@@ -57,7 +58,7 @@ export class ModalAdicionarFuncionarioComponent {
       telefoneRamal: ['', Validators.required],
       cargo: ['', Validators.required],
       modulo: ['', Validators.required],
-      sexo: ['', Validators.required]
+      foto: ['', Validators.required]
     });
   }
   getFotoPerfil(){
@@ -65,11 +66,22 @@ export class ModalAdicionarFuncionarioComponent {
       header: 'Adicionar Foto de Perfil',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
-      maximizable: false
+      maximizable: false,
+      data:{
+        foto: this.formGroup.value.foto
+      }
   });
 
-  this.refs.onClose.subscribe((funcionario: any) => {
-
+  this.refs.onClose.subscribe((dataFoto: any) => {
+    console.log(dataFoto)
+    if (dataFoto) {
+      this.habilitarFoto = true
+      this.formGroup.patchValue({
+        foto: dataFoto
+      });
+    }else{
+      this.habilitarFoto = false
+    }
   });
 
   this.refs.onMaximize.subscribe((value) => {
@@ -85,7 +97,7 @@ export class ModalAdicionarFuncionarioComponent {
         telefone: this.formGroup.value.telefoneRamal,
         cargo: this.formGroup.value.cargo.name,
         modulo: this.formGroup.value.modulo.name,
-        sexo: this.formGroup.value.sexo.code,
+        foto: this.formGroup.value.foto,
         status: status
       };
       this.funcionariosService.CriarFuncionarios(formData).subscribe((res)=>{

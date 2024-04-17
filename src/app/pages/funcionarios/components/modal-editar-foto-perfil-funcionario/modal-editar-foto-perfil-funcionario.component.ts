@@ -9,7 +9,8 @@ import {
 } from '@alyle/ui/image-cropper';
 import { LySliderChange } from '@alyle/ui/slider';
 import { Platform } from '@angular/cdk/platform';
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 const STYLES = (_theme: ThemeVariables, ref: ThemeRef) => {
   ref.renderStyleSheet(CROPPER_STYLES);
@@ -49,6 +50,8 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   ready: boolean | undefined;
   minScale: number | undefined;
   habilitarBotao: boolean | undefined;
+  teste: any
+  @Output() dataSaved = new EventEmitter<string>();
 
   @ViewChild(LyImageCropper, { static: true }) readonly cropper: LyImageCropper | any;
   myConfig: ImgCropperConfig = {
@@ -60,19 +63,33 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   };
 
   constructor(
+    private readonly ref: DynamicDialogRef,
     readonly sRenderer: StyleRenderer,
-    private _platform: Platform
+    private _platform: Platform,
+    public config: DynamicDialogConfig
   ) { }
 
   ngAfterViewInit() {
     // demo: Load image from URL and update position, scale, rotate
     // this is supported only for browsers
 
+    if (this.config.data.foto && this._platform.isBrowser) {
+      const config: ImgCropperLoaderConfig = {
+        scale: this.config.data.foto.scale,
+        xOrigin: this.config.data.foto.xOrigin,
+        yOrigin: this.config.data.foto.yOrigin,
+        // rotation: 90,
+        originalDataURL: this.config.data.foto.originalDataURL
+      };
+      this.cropper.loadImage(config);
+    }
+
     this.habilitarBotao = false;
   }
 
   onCropped(e: ImgCropperEvent) {
     this.croppedImage = e.dataURL;
+    this.teste = e
     console.log('cropped img: ', e);
   }
   onLoaded(e: ImgCropperEvent) {
@@ -84,5 +101,8 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   }
   onSliderInput(event: LySliderChange) {
     this.scale = event.value as number;
+  }
+  salvarFoto(){
+    this.ref.close(this.teste);
   }
 }
