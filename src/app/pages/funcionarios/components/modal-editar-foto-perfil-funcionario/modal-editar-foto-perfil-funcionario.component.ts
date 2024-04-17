@@ -18,13 +18,13 @@ const STYLES = (_theme: ThemeVariables, ref: ThemeRef) => {
   return {
     root: lyl `{
       ${cropper.root} {
-        max-width: 400px
+        max-width: 100%
         height: 300px
       }
     }`,
     sliderContainer: lyl `{
       text-align: center
-      max-width: 400px
+      max-width: 100%
       margin: 14px
     }`,
     cropResult: lyl `{
@@ -67,17 +67,6 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   ngAfterViewInit() {
     // demo: Load image from URL and update position, scale, rotate
     // this is supported only for browsers
-    if (this._platform.isBrowser) {
-      const config: ImgCropperLoaderConfig = {
-        scale: 0.745864772531767,
-        xOrigin: 642.380608078103,
-        yOrigin: 236.26357452128866,
-        // rotation: 90,
-        originalDataURL: 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash-1.png?alt=media&token=96a29be5-e3ef-4f71-8437-76ac8013372c'
-      };
-
-      this.cropper.loadImage(config);
-    }
 
     this.habilitarBotao = false;
   }
