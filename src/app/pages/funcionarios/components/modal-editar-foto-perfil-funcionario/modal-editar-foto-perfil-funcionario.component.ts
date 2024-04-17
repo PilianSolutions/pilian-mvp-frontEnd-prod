@@ -1,15 +1,15 @@
-import { Component, ChangeDetectionStrategy, AfterViewInit, ViewChild } from '@angular/core';
-import { lyl, WithStyles, StyleRenderer, ThemeVariables, ThemeRef } from '@alyle/ui';
+import { StyleRenderer, ThemeRef, ThemeVariables, lyl } from '@alyle/ui';
 import {
   STYLES as CROPPER_STYLES,
-  LyImageCropper,
   ImgCropperConfig,
-  ImgCropperEvent,
   ImgCropperErrorEvent,
-  ImgCropperLoaderConfig
+  ImgCropperEvent,
+  ImgCropperLoaderConfig,
+  LyImageCropper
 } from '@alyle/ui/image-cropper';
-import { Platform } from '@angular/cdk/platform';
 import { LySliderChange } from '@alyle/ui/slider';
+import { Platform } from '@angular/cdk/platform';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 
 const STYLES = (_theme: ThemeVariables, ref: ThemeRef) => {
   ref.renderStyleSheet(CROPPER_STYLES);
@@ -48,6 +48,7 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   scale: number | undefined;
   ready: boolean | undefined;
   minScale: number | undefined;
+  habilitarBotao: boolean | undefined;
 
   @ViewChild(LyImageCropper, { static: true }) readonly cropper: LyImageCropper | any;
   myConfig: ImgCropperConfig = {
@@ -64,7 +65,6 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   ) { }
 
   ngAfterViewInit() {
-
     // demo: Load image from URL and update position, scale, rotate
     // this is supported only for browsers
     if (this._platform.isBrowser) {
@@ -75,9 +75,11 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
         // rotation: 90,
         originalDataURL: 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash-1.png?alt=media&token=96a29be5-e3ef-4f71-8437-76ac8013372c'
       };
+
       this.cropper.loadImage(config);
     }
 
+    this.habilitarBotao = false;
   }
 
   onCropped(e: ImgCropperEvent) {
@@ -85,6 +87,7 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
     console.log('cropped img: ', e);
   }
   onLoaded(e: ImgCropperEvent) {
+    this.habilitarBotao = true;
     console.log('img loaded', e);
   }
   onError(e: ImgCropperErrorEvent) {

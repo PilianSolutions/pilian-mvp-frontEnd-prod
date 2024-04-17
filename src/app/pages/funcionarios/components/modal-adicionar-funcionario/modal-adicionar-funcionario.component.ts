@@ -63,11 +63,9 @@ export class ModalAdicionarFuncionarioComponent {
   getFotoPerfil(){
     this.refs = this.dialogService.open(ModalEditarFotoPerfilFuncionarioComponent, {
       header: 'Adicionar Foto de Perfil',
-      width: '50%',
-      height: '60%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
-      maximizable: true
+      maximizable: false
   });
 
   this.refs.onClose.subscribe((funcionario: any) => {

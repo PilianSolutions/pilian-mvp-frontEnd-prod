@@ -34,10 +34,11 @@
       <p-dropdown formControlName="modulo" [style]="{'width':'100%'}" [options]="modulos" optionLabel="name" [showClear]="true" placeholder="Selecione o Modulo"></p-dropdown>
     </div>
 
-    <div class="flex-col w-full">
-      <span>Adicionar Foto do perfil</span>
-      <p-button label="Adicionar" icon="bx bxs-plus-circle" (onClick)="getFotoPerfil()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
-
+    <br/>
+    
+    <div class="pilian-add-foto-perfil flex-col w-full">
+      <span>Adicionar Foto do funcionario</span>
+      <p-button label="Adicionar" icon="bx bxs-image-add" (onClick)="getFotoPerfil()" [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
     </div>
   </div>
 
@@ -47,9 +48,9 @@
 <br/>
 <br/>
 
-<div class="pilian-container-botton-modal gap-4 bg-whit" >
+<div class="pilian-container-botton-modal gap-2 bg-whit" >
   <p-button label="Cancelar" icon="bx bxs-trash-alt" (onClick)="cancelarModalFuncionario()"  [style]="{'backgroundColor':'rgb(236 236 236)', 'padding': '15px 40px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
-  <p-button label="Adicionar" icon="bx bxs-plus-circle" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+  <p-button label="Criar" icon="bx bxs-plus-circle" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
 </div>
 
 <div class="pilian-opcao-limpar">

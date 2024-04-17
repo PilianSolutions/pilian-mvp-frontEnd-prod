@@ -1,14 +1,14 @@
-<span>teste</span>
-<div [lyDisplay]="'flex'">
-  <button ly-button color="primary" (click)="_fileInput.click()">
-    <ly-icon>image</ly-icon>
-    <span>Select File</span>
-  </button>
+  <div  *ngIf="ready" class="pilian-adicionar-foto">
+    <p-button label="2Adicionar" icon="bx bxs-plus-circle" (click)="_fileInput.click()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+  </div>
+  <div *ngIf="!ready" class="pilian-adicionar-segundo-foto">
+    <p-button label="Adicionar" icon="bx bxs-plus-circle" (click)="_fileInput.click()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+  </div>
   <span [lyFlex]="1"></span>
   <!-- Hidden input -->
   <input #_fileInput type="file" (change)="cropper.selectInputEvent($event)" accept="image/*" hidden>
+
   <button raised ly-button bg="accent" *ngIf="croppedImage">Upload</button>
-</div>
 
 <div *ngIf="ready">
   <button (click)="cropper.zoomIn()" ly-button appearance="icon"><ly-icon>zoom_in</ly-icon></button>
@@ -18,7 +18,7 @@
   <button (click)="cropper.fit()" ly-button>Fit</button>
   <button (click)="cropper.fitToScreen()" ly-button>Fit to screen</button>
   <button (click)="cropper.setScale(1)" ly-button>1:1</button>
-  <button (click)="cropper.clean()" ly-button>Clean</button>
+  <button (click)="cropper.clean()" ly-button>Limpar</button>
 </div>
 
 <ly-img-cropper
@@ -31,7 +31,7 @@
   (loaded)="onLoaded($event)"
   (error)="onError($event)"
 >
-  <span>Drag and drop image</span>
+  <span style="margin-top: 80px; text-align: center;">Clique aqui para adicionar uma foto!</span>
 </ly-img-cropper>
 
 <div *ngIf="ready" [className]="classes.sliderContainer">

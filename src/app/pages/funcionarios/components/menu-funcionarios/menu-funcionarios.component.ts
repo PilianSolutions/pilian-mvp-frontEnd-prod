@@ -30,8 +30,6 @@ export class MenuFuncionariosComponent implements OnDestroy  {
   adicionarFuncionario(){
     this.ref = this.dialogService.open(ModalAdicionarFuncionarioComponent, {
       header: 'Adicionar Funcionario',
-      width: '50%',
-      height: '60%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: true
