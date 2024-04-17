@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup" class="pilian-container-modal gap-4">
 
   <div class="">
-    <label for="nomeCompleto">Nome Completo</label>
+    <label for="nomeCompleto">Nome Completo:</label>
     <div class="p-inputgroup">
       <input pInputText formControlName="nomeCompleto" placeholder="Nome Completo" />
     </div>
@@ -9,14 +9,14 @@
 
   <div class="flex gap-4 w-full">
     <div class="w-full">
-      <label for="email">E-Mail</label>
+      <label for="email">E-Mail:</label>
       <div class="p-inputgroup">
         <input pInputText formControlName="email" placeholder="E-mail" style="width: 100%;"/>
       </div>
     </div>
 
     <div class="w-full">
-      <label for="telefoneRamal">Telefone/Ramal</label>
+      <label for="telefoneRamal">Telefone/Ramal:</label>
       <div class="p-inputgroup">
         <input pInputText formControlName="telefoneRamal" placeholder="Telefone/Ramal" style="width: 100%;"/>
       </div>
@@ -25,19 +25,19 @@
 
   <div class="gap-4">
     <div class="flex-col w-full">
-      <label for="cargo">Cargo</label>
+      <label for="cargo">Cargo:</label>
       <p-dropdown formControlName="cargo" [style]="{'width':'100%'}" [options]="cargos" optionLabel="name" [showClear]="true" placeholder="Selecione o Cargo"></p-dropdown>
     </div>
 
     <div class="flex-col w-full">
-      <label for="modulo">Modulos</label>
+      <label for="modulo">Modulos:</label>
       <p-dropdown formControlName="modulo" [style]="{'width':'100%'}" [options]="modulos" optionLabel="name" [showClear]="true" placeholder="Selecione o Modulo"></p-dropdown>
     </div>
 
     <br/>
 
     <div class="pilian-add-foto-perfil flex-col w-full">
-      <span>Adicionar Foto do funcionario</span>
+      <span style="font-size: 14px; margin-bottom: 5px;">Adicionar Foto do funcionario:</span>
       <p-button label="Adicionar" icon="bx bxs-image-add" (onClick)="getFotoPerfil()" [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
       <br/>
       <img class="shadow-lg" style="border-radius: 50%;" *ngIf="formGroup?.value?.foto" [src]="formGroup?.value?.foto?.dataURL" width="100px" alt="Imagem do Perfil do Candidato">
