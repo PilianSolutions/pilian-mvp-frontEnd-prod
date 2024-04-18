@@ -97,6 +97,9 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
     this.habilitarBotaoSalvar = false;
     this.cropper.clean()
   }
+  adicionarFoto(){
+    this.habilitarBotaoSalvar = false;
+  }
   onLoaded(e: ImgCropperEvent) {
     console.log('img loaded', e);
   }
