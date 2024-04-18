@@ -14,7 +14,10 @@ export class TabelaFuncionariosComponent implements OnInit {
 
   constructor(private readonly osService: FuncionariosObservableService, private readonly funcionariosService: FuncionariosService){
     this.subscriptionConcluirNovoFuncionario = this.osService.observableConcluirNovoFuncionario().subscribe((res: any) =>{
-      this.listarClientes();
+      setTimeout(()=>{
+        this.listarClientes();
+    },300)
+
   });
   }
   selecionadoFuncionario!: any;

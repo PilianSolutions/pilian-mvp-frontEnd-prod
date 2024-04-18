@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ModalAdicionarFuncionarioComponent } from '../modal-adicionar-funcionario/modal-adicionar-funcionario.component';
-import { FuncionariosObservableService } from '../../service/funcionarios.service';
 import { Subscription } from 'rxjs';
+import { FuncionariosObservableService } from '../../service/funcionarios.service';
+import { ModalAdicionarFuncionarioComponent } from '../modal-adicionar-funcionario/modal-adicionar-funcionario.component';
 
 @Component({
   selector: 'pilian-menu-funcionarios',
@@ -38,7 +38,7 @@ export class MenuFuncionariosComponent implements OnDestroy  {
   this.ref.onClose.subscribe((funcionario: any) => {
     console.log(funcionario)
       if (funcionario) {
-          this.osService.nextConcluirNovoFuncionario(funcionario);
+          this.osService.nextConcluirNovoFuncionario(true);
           this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: 'teste' });
       }
   });
@@ -48,6 +48,7 @@ export class MenuFuncionariosComponent implements OnDestroy  {
   });
   }
   ngOnDestroy() {
+    this.subscriptionFuncionarioDados.unsubscribe();
     if (this.ref) {
         this.ref.close();
     }

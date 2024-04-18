@@ -58,7 +58,7 @@ export class ModalAdicionarFuncionarioComponent {
       telefoneRamal: ['', Validators.required],
       cargo: ['', Validators.required],
       modulo: ['', Validators.required],
-      foto: ['', Validators.required]
+      foto: ['']
     });
   }
   getFotoPerfil(){
@@ -102,8 +102,7 @@ export class ModalAdicionarFuncionarioComponent {
       };
       this.funcionariosService.CriarFuncionarios(formData).subscribe((res)=>{
       })
-      this.ref.close(true);
-      console.log(formData);
+      this.ref.close(formData);
     } else {
       console.log('faltando dados', this.formGroup.value)
       // Trate o caso de formulário inválido conforme necessário

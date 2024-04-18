@@ -49,7 +49,7 @@
 
 <div class="pilian-container-botton-modal gap-2 bg-whit" >
   <p-button label="Cancelar" icon="fas fa-times" (onClick)="cancelarModalFuncionario()"  [style]="{'backgroundColor':'rgb(236 236 236)', 'padding': '15px 40px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
-  <p-button label="Criar" icon="fas fa-check" (disabled)="formGroup.isvalid" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
+  <p-button label="Criar" icon="fas fa-check" [disabled]="formGroup.isvalid" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
 </div>
 
 
