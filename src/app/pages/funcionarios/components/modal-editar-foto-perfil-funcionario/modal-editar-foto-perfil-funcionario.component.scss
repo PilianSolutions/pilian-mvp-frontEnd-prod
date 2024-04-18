@@ -5,8 +5,9 @@
   align-items: center;
   position: absolute!important;
   top:0;
-  left: 20%;
+  left: 40%;
   right: 0;
+  z-index: 1;
 }
 .pilian-header-botoes{
   display: flex;
@@ -28,4 +29,5 @@
   top: 0;
   right: 8%;
   z-index: 99;
+  right: calc(0% - -30px);
 }

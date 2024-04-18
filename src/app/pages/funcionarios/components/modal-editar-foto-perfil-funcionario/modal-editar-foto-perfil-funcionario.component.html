@@ -1,6 +1,6 @@
 
   <div *ngIf="!ready" class="pilian-adicionar-segundo-foto">
-    <p-button label="Adicionar" icon="bx bxs-plus-circle" (click)="_fileInput.click()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+    <p-button icon="fas fa-plus" (click)="_fileInput.click()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'borderRadius': '50%', 'padding': '15px 20px', 'color': '#131313'}"></p-button>
   </div>
 
   <input #_fileInput type="file" (change)="cropper.selectInputEvent($event)" accept="image/*" hidden>
@@ -12,7 +12,7 @@
   <button (click)="cropper.fit()" ly-button><i class='bx bx-image' ></i> Ajustar foto</button>
   <button (click)="cropper.fitToScreen()" ly-button><i class='bx bx-image-add' ></i>Ajustar</button>
   <button (click)="cropper.setScale(1)" ly-button>1:1</button>
-  <button *ngIf="ready" (click)="cropper.clean()" ly-button><i class='bx bx-camera-off' ></i> Limpar</button>
+  <button *ngIf="ready" (click)="cropper.clean()" (chenche)="limpar()" ly-button><i class='bx bx-camera-off' ></i> Limpar</button>
 </div>
 
 <ly-img-cropper
@@ -42,11 +42,11 @@
   <p-button *ngIf="ready" label="Substutuir foto" icon="bx bxs-image-add" (click)="_fileInput.click()"[style]="{'backgroundColor':'rgb(183 232 2)', 'borderRadius': '0', 'padding': '14px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
 </div>
 
-<div><img [class]="classes.cropResult" *ngIf="croppedImage" [src]="croppedImage"></div>
+<div><img [class]="classes.cropResult" *ngIf="croppedImage && ready" [src]="croppedImage"></div>
 
 <div *ngIf="ready" class="pilian-header-botoes gap-2">
   <div class="pilian-adicionar-foto">
-    <p-button (disabled)="croppedImage" label="Corta Foto" *ngIf="ready" icon="bx bx-scan"  (click)="cropper.crop()"   [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
+    <p-button  label="Corta Foto" *ngIf="ready" icon="bx bx-scan"  (click)="cropper.crop()"   [style]="{'backgroundColor':'#131313', 'padding': '15px 40px', 'color': '#fff'}"></p-button>
   </div>
-  <p-button (disabled)="croppedImage" bg="accent" label="Salvar" (onClick)="salvarFoto()" icon="bx bxs-save" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
+  <p-button [disabled]="!habilitarBotaoSalvar" bg="accent" label="Salvar" (onClick)="salvarFoto()" icon="bx bxs-save" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 40px', 'color': '#131313'}"></p-button>
 </div>

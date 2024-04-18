@@ -34,7 +34,7 @@ label{
 .pilian-opcao-limpar{
   position: absolute;
   top: 0;
-  right: 14%;
+  right: calc(0% - -60px);
   z-index: 99;
 }
 .pilian-add-foto-perfil{

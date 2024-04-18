@@ -49,7 +49,7 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
   scale: number | undefined;
   ready: boolean | undefined;
   minScale: number | undefined;
-  habilitarBotao: boolean | undefined;
+  habilitarBotaoSalvar: boolean = false;
   teste: any
   @Output() dataSaved = new EventEmitter<string>();
 
@@ -84,16 +84,20 @@ export class ModalEditarFotoPerfilFuncionarioComponent {
       this.cropper.loadImage(config);
     }
 
-    this.habilitarBotao = false;
+
   }
 
   onCropped(e: ImgCropperEvent) {
+    this.habilitarBotaoSalvar = true;
     this.croppedImage = e.dataURL;
     this.teste = e
     console.log('cropped img: ', e);
   }
+  limpar(){
+    this.habilitarBotaoSalvar = false;
+    this.cropper.clean()
+  }
   onLoaded(e: ImgCropperEvent) {
-    this.habilitarBotao = true;
     console.log('img loaded', e);
   }
   onError(e: ImgCropperErrorEvent) {
