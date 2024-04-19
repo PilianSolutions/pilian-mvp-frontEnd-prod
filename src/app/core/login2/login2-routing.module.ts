@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Login2Component } from './login2.component';
-import { AcessarContaComponent } from './components/acessar-conta/acessar-conta.component';
+import { AcessarContaComponent } from '../login/components/acessar-conta/acessar-conta.component';
 
 
 const routes: Routes = [

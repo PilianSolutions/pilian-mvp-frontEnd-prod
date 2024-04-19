@@ -1,0 +1,186 @@
+.bgPilian{
+  background-color: #131313;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.logoPilian{
+  width: calc(100% - 30%);
+  background-color: rgb(196, 242, 27);
+  border-radius:  0 50% 50% 0 ;
+  transition: 0.1s 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logoTextoPilianPrincipal{
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  display: flex;
+  margin-top: 35px;
+  flex-direction: column;
+  align-items: flex-end;
+  h1{
+    font-size: 3.5rem;
+    margin-left: -30px;
+    letter-spacing: -1px;
+    color: #131313;
+    font-weight:500;
+  }
+  span{
+    font-size: 1.2rem;
+    margin-top: -8px;
+    color: #131313;
+  }
+}
+
+.logoPilianCompleto{
+display: none;
+}
+
+.formularioLogin{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.formularioLogin .title{
+  font-size: 1.5rem;
+}
+form{
+  max-width: 350px;
+  width: 100%;
+  transition: transform .8s cubic-bezier(.36,.15,.26,.99), opacity .8s cubic-bezier(.36,.15,.26,.99);
+}
+.input-field {
+  max-width: 350px;
+  width: 100%;
+  background-color: #323232;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 95%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: rgb(196, 242, 27);
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.input-field input::placeholder {
+  color: #5d5d5d;
+  font-weight: 500;
+}
+.formularioLogin .btn{
+  width: 100%;
+  background-color: rgb(196, 242, 27);
+  border: 0;
+  height: 55px;
+  border-radius: 55px;
+}
+
+@media (max-width: 870px) {
+  .bgPilian{
+    flex-direction: column;
+  }
+  .logoPilian{
+    width: 100%!important;
+    height: calc(100% - 70%);
+    border-radius: 0 0  50% 50% ;
+    transition: 0.1s 0.1s ease-in-out;
+  }
+  .logoPilian .image{
+    display: none;
+  }
+  .logoTextoPilianPrincipal{
+    display: none;
+  }
+  .logoPilianCompleto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    width: 100%;
+  }
+
+  .logoPilianCompleto .logoTextoPilian{
+    display: flex;
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: flex-end;
+    h1{
+      font-size: 4rem;
+      margin-left: -30px;
+      letter-spacing: -1px;
+      border: 0;
+      font-weight:500;
+    }
+    span{
+      font-size: 1.2rem;
+      margin-top: -8px;
+      color: #131313;
+    }
+  }
+  .logoPilianCompleto .imageLogo{
+    width: 200px;
+    margin-left: -60px;
+  }
+
+  .formularioLogin{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+@media (max-width: 500px) {
+  .logoPilianCompleto .logoTextoPilian{
+    display: flex;
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: flex-end;
+    h1{
+      font-size: 3.3rem;
+      margin-left: -23px;
+      letter-spacing: -1px;
+      border: 0;
+      font-weight:500;
+    }
+    span{
+      font-size: 0.9rem;
+      margin-top: -15px;
+      color: #131313;
+    }
+  }
+  .logoPilianCompleto .imageLogo{
+    width: 170px;
+    margin-left: -60px;
+  }
+}

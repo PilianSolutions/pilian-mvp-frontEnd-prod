@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
-import { AcessarContaComponent } from './components/acessar-conta/acessar-conta.component';
+import { AcessarContaComponent } from '../login/components/acessar-conta/acessar-conta.component';
 import { CriarContaComponent } from './components/criar-conta/criar-conta.component';
 import { Login2RoutingModule, } from './login2-routing.module';
 import { Login2Component } from './login2.component';
@@ -11,7 +11,6 @@ import { Login2Component } from './login2.component';
 
 @NgModule({
   declarations: [
-    AcessarContaComponent,
     CriarContaComponent,
     Login2Component,
   ],

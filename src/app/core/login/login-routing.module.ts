@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login.component';
+import { AcessarContaComponent } from './components/acessar-conta/acessar-conta.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    component: AcessarContaComponent,
   },
 ];
 
