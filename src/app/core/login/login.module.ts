@@ -7,6 +7,7 @@ import { AcessarContaComponent } from './components/acessar-conta/acessar-conta.
 import { CriarContaComponent } from './components/criar-conta/criar-conta.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { EsqueceuSenhaComponent } from './components/esqueceu-senha/esqueceu-senha.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LoginComponent } from './login.component';
     AcessarContaComponent,
     CriarContaComponent,
     LoginComponent,
+    EsqueceuSenhaComponent,
   ],
   imports: [
     CommonModule,
@@ -22,5 +24,6 @@ import { LoginComponent } from './login.component';
     MessagesModule,
     ToastModule
   ],
+  exports:[EsqueceuSenhaComponent,]
 })
 export class LoginModule { }

@@ -20,7 +20,7 @@
       <h2 class="title">Acessar o Pilian</h2>
       <div class="input-field">
         <i class="fas fa-address-card"></i>
-        <input type="text" formControlName="matricula" placeholder="Matricula" />
+        <input type="text" formControlName="matricula" placeholder="Matricula / E-mail" />
       </div>
       <div class="input-field">
         <i class="fas fa-lock"></i>
@@ -29,6 +29,9 @@
       <div class="input-field">
         <i class="fas fa-sign-in-alt"></i>
         <input type="submit" (click)="loginConta()" class="btn" value="Entrar" />
+      </div>
+      <div (click)="esqueceuSenha()">
+        <span>Esqueceu sua senha?</span>
       </div>
     </form>
   </section>

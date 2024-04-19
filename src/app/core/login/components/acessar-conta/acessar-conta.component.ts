@@ -2,20 +2,23 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { EsqueceuSenhaComponent } from '../esqueceu-senha/esqueceu-senha.component';
 
 @Component({
   selector: 'app-acessar-conta',
   templateUrl: './acessar-conta.component.html',
   styleUrls: ['./acessar-conta.component.scss'],
-  providers: [MessageService]
+  providers: [MessageService, DialogService]
 })
 export class AcessarContaComponent {
   formLogin: FormGroup;
   usuarioSenha: any = {};
   dadosUsuarios:any;
+  ref: DynamicDialogRef | undefined;
 
   constructor(
     private readonly router: Router,
@@ -23,7 +26,8 @@ export class AcessarContaComponent {
     private loginService: LoginService,
     private readonly authService: AuthService,
     private messageService: MessageService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private dialogService: DialogService
   ) {
     this.formLogin = this.formBuilder.group({
       matricula: new FormControl(null),
@@ -111,6 +115,25 @@ export class AcessarContaComponent {
     } else {
       return '';
     }
+  }
+
+  esqueceuSenha(){
+    this.ref = this.dialogService.open(EsqueceuSenhaComponent, {
+      header: 'Recupere sua senha',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: false
+    });
+
+    this.ref.onClose.subscribe((esqueceuSenha: any) => {
+        if (esqueceuSenha) {
+            this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: 'teste' });
+        }
+    });
+
+    this.ref.onMaximize.subscribe((value) => {
+      this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
+  });
   }
 
 }

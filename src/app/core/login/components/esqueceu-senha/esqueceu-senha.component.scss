@@ -1,0 +1,18 @@
+::ng-deep .p-dialog .p-dialog-header {
+  background: rgb(196, 242, 27);
+  color: #131313;
+  padding: 0.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  z-index: 9;
+}
+::ng-deep .p-dropdown .p-dropdown-label {
+  background: #ebebeb;
+  font-weight: 600;
+  color: #808080;
+  border-radius: 8px 0 0 8px;
+}
+
+::ng-deep.p-dropdown .p-dropdown-trigger {
+  background: #ebebeb!important;
+}
