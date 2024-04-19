@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
         this.authService.salvarDadoUsuarioIndexedDB(this.dadosUsuarios);
        //this.authService.login(this.usuario, this.senha)
-        this.router.navigate([`/${this.usuario}/painel`])
+        this.router.navigate([`/${this.usuario}/painel/dashboard`])
         this.messageService.clear();
       }, 1000);
 

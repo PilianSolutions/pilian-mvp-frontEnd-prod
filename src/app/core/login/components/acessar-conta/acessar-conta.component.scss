@@ -96,11 +96,13 @@ form{
   color: #5d5d5d;
   font-weight: 500;
 }
-.formularioLogin .btn{
-  width: 100%;
+.formularioLogin .input-field  .btn{
+  cursor: pointer;
+  width: 92%;
   background-color: rgb(196, 242, 27);
   border: 0;
   height: 55px;
+  color: #323232;
   border-radius: 55px;
 }
 

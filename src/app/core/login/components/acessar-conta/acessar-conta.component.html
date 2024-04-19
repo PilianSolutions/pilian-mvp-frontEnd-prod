@@ -1,6 +1,7 @@
+<p-toast></p-toast>
 <div class="bgPilian">
   <section class="logoPilian">
-    <img class="image" src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" alt="">
+    <img id="pilian-form-login" name="form" class="image" src="../../../assets/img/pilian/Logo Pilian - iconogr fica - vetor.svg" alt="">
     <div class="logoTextoPilianPrincipal">
       <h1>Pilian</h1>
       <span>Gestor</span>
@@ -15,17 +16,20 @@
 
   </section>
   <section class="formularioLogin">
-    <form action="#" class="sign-up-form">
+    <form  [formGroup]="formLogin" class="sign-up-form">
       <h2 class="title">Acessar o Pilian</h2>
       <div class="input-field">
         <i class="fas fa-address-card"></i>
-        <input type="text" placeholder="Matricula" />
+        <input type="text" formControlName="matricula" placeholder="Matricula" />
       </div>
       <div class="input-field">
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Senha" />
+        <input type="password" formControlName="password" placeholder="Senha" />
       </div>
-      <input type="submit" class="btn" value="Entrar" />
+      <div class="input-field">
+        <i class="fas fa-sign-in-alt"></i>
+        <input type="submit" (click)="loginConta()" class="btn" value="Entrar" />
+      </div>
     </form>
   </section>
 </div>

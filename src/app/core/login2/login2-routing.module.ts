@@ -4,10 +4,10 @@ import { AcessarContaComponent } from '../login/components/acessar-conta/acessar
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AcessarContaComponent,
-  },
+  // {
+  //   path: '',
+  //   component: AcessarContaComponent,
+  // },
 ];
 
 @NgModule({
