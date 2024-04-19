@@ -5,6 +5,7 @@ import { FuncionariosObservableService } from '../../service/funcionarios.servic
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 import { ModalEditarFuncionarioComponent } from '../modal-editar-funcionario/modal-editar-funcionario.component';
+import { ModalRemoverFuncionarioComponent } from '../modal-remover-funcionario/modal-remover-funcionario.component';
 
 @Component({
   selector: 'pilian-tabela-funcionarios',
@@ -55,6 +56,30 @@ export class TabelaFuncionariosComponent implements OnInit {
         funcionario: funcionario
       },
       maximizable: true
+  });
+
+  this.ref.onClose.subscribe((funcionario: any) => {
+    console.log(funcionario)
+      if (funcionario) {
+          this.osService.nextConcluirNovoFuncionario(true);
+          this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: 'teste' });
+      }
+  });
+
+  this.ref.onMaximize.subscribe((value) => {
+      this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
+  });
+  }
+
+  removerFuncionario(funcionario: any){
+    this.ref = this.dialogService.open(ModalRemoverFuncionarioComponent, {
+      header: 'Remover Funcionario',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 500,
+      data:{
+        funcionario: funcionario
+      },
+      maximizable: false
   });
 
   this.ref.onClose.subscribe((funcionario: any) => {
