@@ -84,8 +84,9 @@
 }
 .sidebar .nav-list{
   margin-top: 20px;
-  height: 100%;
   padding: 0;
+  height: 100%;
+  overflow-x:auto;
 }
 .sidebar li{
   position: relative;
