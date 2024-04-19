@@ -21,17 +21,17 @@
           <p-tableCheckbox [value]="funcionarios"></p-tableCheckbox>
       </td>
       <td class="flex gap-4 items-center">
-        <img *ngIf="funcionarios.sexo === 'm'" style="width: 40px; height: 40px; border-radius: 50%;" src="../../../../../assets/img/funcionario-m.png" alt="">
-        <img *ngIf="funcionarios.sexo === 'f'" style="width: 40px; height: 40px; border-radius: 50%;"src="../../../../../assets/img/funcionario-f.png" alt="">
+        <img *ngIf="funcionarios?.sexo === 'm'" style="width: 40px; height: 40px; border-radius: 50%;" src="../../../../../assets/img/funcionario-m.png" alt="">
+        <img *ngIf="funcionarios?.sexo === 'f'" style="width: 40px; height: 40px; border-radius: 50%;"src="../../../../../assets/img/funcionario-f.png" alt="">
         <div class="flex flex-col">
-          <span class="font-bold">{{ funcionarios.nome }}</span>
-          <span class="font-extralight text-xs">{{ funcionarios.email }}</span>
+          <span class="font-bold">{{ funcionarios?.nome }}</span>
+          <span class="font-extralight text-xs">{{ funcionarios?.email }}</span>
         </div>
       </td>
-      <td>{{ funcionarios.telefone }}</td>
-      <td>{{ funcionarios.modulo }}</td>
-      <td>{{ funcionarios.cargo }}</td>
-      <td><span [ngClass]="{'online': funcionarios.status === 'online', 'offline': funcionarios.status === 'offline'}">{{ funcionarios.status }}</span></td>
+      <td>{{ funcionarios?.telefone | mask:'(00) 0000-00000'}}</td>
+      <td>{{ funcionarios?.modulo }}</td>
+      <td>{{ funcionarios?.cargo }}</td>
+      <td><span [ngClass]="{'online': funcionarios?.status === 'online', 'offline': funcionarios?.status === 'offline'}">{{ funcionarios?.status }}</span></td>
       <td class="gap-4"><i class='bx bxs-edit-alt cursor-pointer'></i><i (click)="excluirFuncionarios(rowIndex)" class='bx bxs-trash-alt cursor-pointer'></i></td>
     </tr>
   </ng-template>

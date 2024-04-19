@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { Subscription, finalize } from 'rxjs';
 import { FuncionariosService } from 'src/app/shared/services/funcionarios.service';
 import { FuncionariosObservableService } from '../../service/funcionarios.service';
@@ -8,6 +8,7 @@ import { FuncionariosObservableService } from '../../service/funcionarios.servic
   templateUrl: './tabela-funcionarios.component.html',
   styleUrls: ['./tabela-funcionarios.component.scss']
 })
+
 export class TabelaFuncionariosComponent implements OnInit {
   listaFuncionarios: any;
   subscriptionConcluirNovoFuncionario: Subscription | any;

@@ -13,6 +13,7 @@ import { LoginModule } from './core/login/login.module';
 import { Login2Module } from './core/login2/login2.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { initializer } from './util/api-init';
+import { NgxMaskPipe, provideNgxMask } from 'ngx-mask'
 
 /** Import animations */
 
@@ -50,6 +51,7 @@ import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxMaskPipe,
     HttpClientModule,
     ToastModule,
     LoginModule,
@@ -57,6 +59,7 @@ import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
   ],
   exports: [NgForOf, NgIf],
   providers: [
+    provideNgxMask(),
     [ LyTheme2 ],
     [ StyleRenderer ],
     // Theme that will be applied to this module

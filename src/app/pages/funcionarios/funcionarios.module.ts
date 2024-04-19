@@ -23,7 +23,7 @@ import { LySliderModule } from '@alyle/ui/slider';
 import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyThemeModule } from '@alyle/ui';
-
+import { NgxMaskPipe, provideNgxMask } from 'ngx-mask'
 @NgModule({
   declarations: [
     FuncionariosComponent,
@@ -42,16 +42,20 @@ import { LyThemeModule } from '@alyle/ui';
     TableModule,
     InputTextModule,
     DropdownModule,
+    NgxMaskPipe,
     ButtonModule,
     LyImageCropperModule,
     LySliderModule,
     LyButtonModule,
     LyIconModule,
-    LyThemeModule
+    LyThemeModule,
   ],
   exports:[
     ModalEditarFotoPerfilFuncionarioComponent,
     ModalAdicionarFuncionarioComponent
+  ],
+  providers: [
+    provideNgxMask(),
   ]
 })
 export class FuncionariosModule { }
