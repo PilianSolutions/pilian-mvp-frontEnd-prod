@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FuncionariosService } from 'src/app/shared/services/funcionarios.service';
 import { ModalEditarFotoPerfilFuncionarioComponent } from '../modal-editar-foto-perfil-funcionario/modal-editar-foto-perfil-funcionario.component';
-import { MessageService } from 'primeng/api';
 
 interface cargo {
   name: string,
@@ -11,12 +10,11 @@ interface cargo {
 }
 
 @Component({
-  selector: 'app-modal-adicionar-funcionario',
-  templateUrl: './modal-adicionar-funcionario.component.html',
-  styleUrls: ['./modal-adicionar-funcionario.component.scss'],
-  providers: [MessageService]
+  selector: 'app-modal-editar-funcionario',
+  templateUrl: './modal-editar-funcionario.component.html',
+  styleUrls: ['./modal-editar-funcionario.component.scss']
 })
-export class ModalAdicionarFuncionarioComponent {
+export class ModalEditarFuncionarioComponent {
   formGroup: FormGroup | any;
   cargos:cargo[] | any;
   modulos:cargo[] | undefined;
@@ -26,7 +24,15 @@ export class ModalAdicionarFuncionarioComponent {
   selecionadoSexo: any;
   refs: DynamicDialogRef | undefined;
   habilitarFoto: boolean = false;
-  constructor(public messageService: MessageService,private formBuilder: FormBuilder,private readonly ref: DynamicDialogRef, public dialogService: DialogService, private readonly funcionariosService: FuncionariosService) { }
+  cargoEditar: any;
+  moduloEditar: any;
+  constructor(
+    private formBuilder: FormBuilder,
+    private readonly ref: DynamicDialogRef,
+    public dialogService: DialogService,
+    private readonly funcionariosService: FuncionariosService,
+    public config: DynamicDialogConfig
+  ) { }
 
 
   ngOnInit() {
@@ -50,17 +56,19 @@ export class ModalAdicionarFuncionarioComponent {
 
   }
   initializeForm() {
+    console.log(this.config.data)
     this.formGroup = this.formBuilder.group({
-      nomeCompleto: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      telefoneRamal: ['', Validators.required],
-      usuario: ['', Validators.required],
-      senha: ['', Validators.required],
-      cargo: ['', Validators.required],
-      modulo: ['', Validators.required],
-      foto: ['']
+      nomeCompleto: [this.config.data.funcionario.nome, Validators.required],
+      email: [this.config.data.funcionario.email, [Validators.required, Validators.email]],
+      telefoneRamal: [this.config.data.funcionario.telefone, Validators.required],
+      usuario: [this.config.data.funcionario.usuario, Validators.required],
+      senha: [this.config.data.funcionario.senha, Validators.required],
+      cargo: [this.config.data.funcionario.cargo, Validators.required],
+      modulo: [this.config.data.funcionario.modulo, Validators.required],
+      foto: [this.config.data.funcionario.foto]
     });
   }
+
   getFotoPerfil(){
     this.refs = this.dialogService.open(ModalEditarFotoPerfilFuncionarioComponent, {
       header: 'Adicionar Foto de Perfil',
@@ -102,8 +110,8 @@ export class ModalAdicionarFuncionarioComponent {
         foto: this.formGroup.value.foto,
         status: status
       };
-      this.funcionariosService.CriarFuncionarios(formData).subscribe((res)=>{
-          this.messageService.add({ severity: 'success', summary: '', detail: 'Funcionario adicionado com sucesso!' });
+      this.funcionariosService.EditarFuncionarios(this.config.data.funcionario.id, formData).subscribe((res)=>{
+        
       })
       this.ref.close(formData);
     } else {

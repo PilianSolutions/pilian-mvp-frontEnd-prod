@@ -19,7 +19,7 @@
     <div class="w-full">
       <label for="telefoneRamal">Telefone/Ramal:</label>
       <div class="p-inputgroup">
-        <input pInputText formControlName="telefoneRamal" placeholder="Telefone/Ramal" style="width: 100%;"/>
+        <input pInputText formControlName="telefoneRamal" placeholder="Telefone/Ramal"  style="width: 100%;"/>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
     <div class="w-full">
       <label for="email">Usuario:</label>
       <div class="p-inputgroup">
-        <input pInputText formControlName="usuario" placeholder="Ex: João.Santos" style="width: 100%;"/>
+        <input pInputText formControlName="usuario"  placeholder="Ex: João.Santos" style="width: 100%;"/>
       </div>
     </div>
 
@@ -43,12 +43,12 @@
   <div class="gap-4">
     <div class="flex-col w-full">
       <label for="cargo">Cargo:</label>
-      <p-dropdown formControlName="cargo" [style]="{'width':'100%'}" [options]="cargos" optionLabel="name" [showClear]="true" placeholder="Selecione o Cargo"></p-dropdown>
+      <p-dropdown formControlName="cargo" [(ngModel)]="cargoEditar" [style]="{'width':'100%'}" [options]="cargos" optionLabel="name" [showClear]="true" placeholder="Selecione o Cargo"></p-dropdown>
     </div>
 
     <div class="flex-col w-full">
       <label for="modulo">Modulos:</label>
-      <p-dropdown formControlName="modulo" [style]="{'width':'100%'}" [options]="modulos" optionLabel="name" [showClear]="true" placeholder="Selecione o Modulo"></p-dropdown>
+      <p-dropdown formControlName="modulo" [(ngModel)]="moduloEditar"  [style]="{'width':'100%'}" [options]="modulos" optionLabel="name" [showClear]="true" placeholder="Selecione o Modulo"></p-dropdown>
     </div>
 
     <br/>
@@ -66,7 +66,7 @@
 
 <div class="pilian-container-botton-modal gap-2 bg-whit" >
   <p-button label="Cancelar" icon="fas fa-times" (onClick)="cancelarModalFuncionario()"  [style]="{'backgroundColor':'rgb(236 236 236)', 'padding': '15px 40px', 'color': '#131313', 'marginRight':'15px'}"></p-button>
-  <p-button label="Criar" icon="fas fa-check" [disabled]="formGroup.isvalid" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
+  <p-button label="Editar" icon="fas fa-edit" [disabled]="formGroup.isvalid" (onClick)="onSubmit()" [style]="{'backgroundColor':'rgb(196, 242, 27)', 'padding': '15px 60px', 'color': '#131313'}"></p-button>
 </div>
 
 

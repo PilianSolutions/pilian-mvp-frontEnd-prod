@@ -1,0 +1,43 @@
+::ng-deep .p-dialog .p-dialog-header {
+  background: rgb(196, 242, 27);
+  color: #131313;
+  padding: 0.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  z-index: 9;
+}
+::ng-deep .p-dropdown .p-dropdown-label {
+  background: #ebebeb;
+  font-weight: 600;
+  color: #808080;
+  border-radius: 8px 0 0 8px;
+}
+
+::ng-deep.p-dropdown .p-dropdown-trigger {
+  background: #ebebeb!important;
+}
+
+.pilian-container-modal{
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+label{
+ font-size: 13px;
+}
+.pilian-container-botton-modal{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #0000000f;
+}
+.pilian-opcao-limpar{
+  position: absolute;
+  top: 0;
+  right: calc(0% - -60px);
+  z-index: 99;
+}
+.pilian-add-foto-perfil{
+  display: flex;
+  align-items: center;
+}

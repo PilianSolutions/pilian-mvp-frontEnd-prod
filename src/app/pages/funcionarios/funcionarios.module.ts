@@ -26,12 +26,15 @@ import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyThemeModule } from '@alyle/ui';
 import { NgxMaskPipe, provideNgxMask } from 'ngx-mask'
+import { ModalEditarFuncionarioComponent } from './components/modal-editar-funcionario/modal-editar-funcionario.component';
+import { ToastModule } from 'primeng/toast';
 @NgModule({
   declarations: [
     FuncionariosComponent,
     MenuFuncionariosComponent,
     TabelaFuncionariosComponent,
     ModalAdicionarFuncionarioComponent,
+    ModalEditarFuncionarioComponent,
     ModalEditarFotoPerfilFuncionarioComponent
   ],
 
@@ -51,7 +54,8 @@ import { NgxMaskPipe, provideNgxMask } from 'ngx-mask'
     LyButtonModule,
     LyIconModule,
     LyThemeModule,
-    MatMenuModule
+    MatMenuModule,
+    ToastModule
   ],
   exports:[
     ModalEditarFotoPerfilFuncionarioComponent,

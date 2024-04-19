@@ -39,7 +39,7 @@ export class MenuFuncionariosComponent implements OnDestroy  {
     console.log(funcionario)
       if (funcionario) {
           this.osService.nextConcluirNovoFuncionario(true);
-          this.messageService.add({ severity: 'info', summary: 'Product Selected', detail: 'teste' });
+          this.messageService.add({ severity: 'success', summary: '', detail: 'Funcionario adicionado com sucesso!' });
       }
   });
 
