@@ -32,7 +32,14 @@
       <td>{{ funcionarios?.modulo }}</td>
       <td>{{ funcionarios?.cargo }}</td>
       <td><span [ngClass]="{'online': funcionarios?.status === 'online', 'offline': funcionarios?.status === 'offline'}">{{ funcionarios?.status }}</span></td>
-      <td class="gap-4"><i class='bx bxs-edit-alt cursor-pointer'></i><i (click)="excluirFuncionarios(rowIndex)" class='bx bxs-trash-alt cursor-pointer'></i></td>
+      <td>
+        <button mat-button style="padding: 11px; border-radius: 28%;" [matMenuTriggerFor]="animals"><i class="fas fa-bars"></i></button>
+        <mat-menu #animals="matMenu">
+          <button mat-menu-item><i class="fas fa-id-card"></i> Detalhe</button>
+          <button mat-menu-item><i class="fas fa-edit"></i> Editar</button>
+          <button mat-menu-item><i class="fas fa-trash"></i>  Remover</button>
+        </mat-menu>
+      </td>
     </tr>
   </ng-template>
 </p-table>

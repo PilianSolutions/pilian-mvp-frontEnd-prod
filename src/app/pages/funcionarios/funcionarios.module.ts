@@ -17,6 +17,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ModalEditarFotoPerfilFuncionarioComponent } from './components/modal-editar-foto-perfil-funcionario/modal-editar-foto-perfil-funcionario.component';
+import { MenuModule } from 'primeng/menu';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { LyImageCropperModule } from '@alyle/ui/image-cropper';
 import { LySliderModule } from '@alyle/ui/slider';
@@ -49,6 +51,7 @@ import { NgxMaskPipe, provideNgxMask } from 'ngx-mask'
     LyButtonModule,
     LyIconModule,
     LyThemeModule,
+    MatMenuModule
   ],
   exports:[
     ModalEditarFotoPerfilFuncionarioComponent,

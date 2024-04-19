@@ -27,6 +27,7 @@ export class TabelaFuncionariosComponent implements OnInit {
   ngOnInit(): void {
 
   this.listarClientes();
+  
   }
 
   ngOnDestroy(): void {

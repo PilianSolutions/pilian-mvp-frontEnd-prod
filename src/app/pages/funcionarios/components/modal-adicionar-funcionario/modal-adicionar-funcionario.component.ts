@@ -46,16 +46,14 @@ export class ModalAdicionarFuncionarioComponent {
         {name: 'Gerenciamento de Estoque', code: '1'},
     ];
 
-    this.sexo = [
-      {name: 'Masculino', code: 'm'},
-      {name: 'Feminino', code: 'f'},
-  ];
   }
   initializeForm() {
     this.formGroup = this.formBuilder.group({
       nomeCompleto: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telefoneRamal: ['', Validators.required],
+      usuario: ['', Validators.required],
+      senha: ['', Validators.required],
       cargo: ['', Validators.required],
       modulo: ['', Validators.required],
       foto: ['']
@@ -95,6 +93,8 @@ export class ModalAdicionarFuncionarioComponent {
         nome: this.formGroup.value.nomeCompleto,
         email: this.formGroup.value.email,
         telefone: this.formGroup.value.telefoneRamal,
+        usuario: this.formGroup.value.usuario,
+        senha: this.formGroup.value.senha,
         cargo: this.formGroup.value.cargo.name,
         modulo: this.formGroup.value.modulo.name,
         foto: this.formGroup.value.foto,
